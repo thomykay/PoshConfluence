@@ -1,1 +1,16 @@
 C:\Users\thkrause\Documents\Visual Studio 2010\Projects\Confluence\Confluence\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\PoshConfluence.psd1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\PoshConfluence.psm1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\CflSession.cs
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\CflSessionManager.cs
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Confluence.dll
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Confluence.pdb
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\obj\x86\Debug\Confluence.dll
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\obj\x86\Debug\Confluence.pdb
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Enter-CflSession.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Exit-CflSession.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Get-CflSession.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\New-CflSession.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Remove-CflSession.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Get-CflSpace.ps1
