@@ -8,10 +8,10 @@
 	
 	if ($Current)
 		{
-			$CflSessionManager.Sessions
+			$CflSessionManager.CurrentSession
 		}
 		else
 		{
-			$CflSessionManager.CurrentSession
+			$CflSessionManager.Sessions
 		}
 }

@@ -3,6 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confluence", "Confluence\Confluence.csproj", "{1A30125B-FB0F-4FBE-863A-7118797CCF6F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6700EBD9-67DF-49E1-BE49-E3A7C31DCB9A}"
+	ProjectSection(SolutionItems) = preProject
+		Confluence.psm1 = Confluence.psm1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
