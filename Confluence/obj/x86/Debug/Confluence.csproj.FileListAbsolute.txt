@@ -21,3 +21,13 @@ C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluenc
 C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\UserManagement\Get-CflUser.ps1
 C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\UserManagement\New-CflUser.ps1
 C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\UserManagement\Remove-CflUser.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\UserManagement\Get-CflGroup.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\UserManagement\New-CflGroup.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\UserManagement\Remove-CflGroup.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Content\Get-CflBlogEntry.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Content\Get-CflPage.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Content\New-CflBlogEntry.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\ImportExport\Export-CflSite.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\ImportExport\Export-CflSpace.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\ImportExport\Import-CflSite.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\ImportExport\Import-CflSpace.ps1

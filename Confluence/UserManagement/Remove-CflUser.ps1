@@ -12,9 +12,11 @@ function Remove-CflUser
 		[ValidateNotNull()]
 		[ThomyKay.Confluence.CflSession]$Session = (Get-CflSession -Current)
 	)
-	
-	if ($psCmdlet.ShouldProcess($User.Name))
+process
 	{
-		[Void]$Session.proxy.removeUser($Session.Token, $User.Name)
+		if ($psCmdlet.ShouldProcess($User.Name))
+		{
+			[Void]$Session.proxy.removeUser($Session.Token, $User.Name)
+		}
 	}
 }

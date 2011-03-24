@@ -13,11 +13,13 @@ function New-CflUser
 		[ValidateNotNull()]
 		[string]$Password,
 		
-		[Parameter(Mandatory=$false, Position = 2, ValueFromPipelineByPropertyName = $true)]
-		[string]$FullName = "",
+		[Parameter(Mandatory=$true, Position = 2, ValueFromPipelineByPropertyName = $true)]
+		[ValidateNotNull()]
+		[string]$FullName,
 		
-		[Parameter(Mandatory=$false, Position = 3, ValueFromPipelineByPropertyName = $true)]
-		[string]$Email = "",
+		[Parameter(Mandatory=$true, Position = 3, ValueFromPipelineByPropertyName = $true)]
+		[ValidateNotNull()]
+		[string]$Email,
 		
 		[Parameter(Mandatory = $false)]
 		[ValidateNotNull()]
@@ -25,7 +27,7 @@ function New-CflUser
 	)
 process
 	{
-		$user = New-Object ThomyKay.Confluence.RemoteUser @{
+		$user = New-Object ThomyKay.Confluence.RemoteUser -Property @{
 			Name = $Name;
 			Fullname = $FullName;
 			Email = $Email
