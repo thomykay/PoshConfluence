@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--<Types xmlns="http://schemas.microsoft.com/PowerShell/TypeData/2007/04">-->
+  <Types>
+  <Type>
+    <Name>ThomyKay.Confluence.RemotePageSummary</Name>
+    <Members>
+      <ScriptProperty>
+        <Name>Content1</Name>
+        <GetScriptBlock>
+          $session = Get-CflSession -Current
+          $page = $session.Proxy.getPage($session.Token, $this.space, $this.Title)
+          $page.Content
+        </GetScriptBlock>
+      </ScriptProperty>
+    </Members>
+  </Type>
+</Types>

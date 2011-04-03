@@ -1,7 +1,7 @@
 ﻿#Author: thkrause
-#Date: 3/24/2011 8:38:40 PM
-#Script: New-CflBlogEntry
-function New-CflBlogEntry
+#Date: 4/3/2011 1:21:12 PM
+#Script: New-CflPage
+function New-CflPage
 {
 	[CmdletBinding()]
 	param (
@@ -18,14 +18,12 @@ function New-CflBlogEntry
 		[ValidateNotNull()]
 		[ThomyKay.Confluence.CflSession]$Session = (Get-CflSession -Current)
 	)
-process
-	{
-		$blogEntry = New-Object ThomyKay.Confluence.RemoteBlogEntry -Property @{
-			Title = $Title;
-			Content = $Content;
-			Space = $Space.key;
-		}
-		
-		$session.Proxy.storeBlogEntry($session.Token, $blogEntry)
+	
+	$page = new-object ThomyKay.Confluence.RemotePage -Property @{
+		Title = $Title;
+		Content = $Content;
+		Space = $space.key
 	}
+	
+	$Session.Proxy.storePage($Session.Token, $page)
 }

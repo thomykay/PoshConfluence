@@ -23,7 +23,7 @@ process
 		$blogEntry = New-Object ThomyKay.Confluence.RemoteBlogEntry -Property @{
 			Title = $Title;
 			Content = $Content;
-			Space = $Space
+			Space = $Space.key;
 		}
 		
 		$session.Proxy.storeBlogEntry($session.Token, $blogEntry)

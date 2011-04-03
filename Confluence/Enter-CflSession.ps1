@@ -7,7 +7,7 @@
 	
 	[Parameter(Mandatory=$true)]
 	[System.Management.Automation.Credential()]
-	[System.Management.Automation.PSCredential]$Credential
+	$Credential
 	)
 	
 	[Uri]$soapUri = $ConnectionUri.ToString() + "rpc/soap-axis/confluenceservice-v1?wsdl"
@@ -21,5 +21,13 @@
 		Proxy = $proxy
 	}
 	
-	$CflSessionManager.Enter($session)
+	# the condition is temp for PowerWF.
+	if ($CflSessionManager)
+	{
+		$CflSessionManager.Enter($session)
+	}
+	else
+	{
+		$session
+	}
 }
