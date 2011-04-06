@@ -3,7 +3,7 @@
 #Script: New-CflBlogEntry
 function New-CflBlogEntry
 {
-	[CmdletBinding()]
+	[CmdletBinding(SupportsShouldProcess = $true, ConfirmImpact = "Low")]
 	param (
 		[Parameter(Mandatory = $true, Position = 0, ValueFromPipelineByPropertyName = $true)]
 		[string]$Title,
@@ -11,7 +11,7 @@ function New-CflBlogEntry
 		[Parameter(Mandatory = $true, Position = 1, ValueFromPipelineByPropertyName = $true)]
 		[string]$Content,
 
-		[Parameter(Mandatory = $true, Position = 2, ValueFromPipelineByPropertyName = $true)]
+		[Parameter(Mandatory = $true, Position = 2, ValueFromPipeline = $true)]
 		[ThomyKay.Confluence.RemoteSpaceSummary]$Space,
 		
 		[Parameter(Mandatory = $false)]
@@ -20,12 +20,15 @@ function New-CflBlogEntry
 	)
 process
 	{
-		$blogEntry = New-Object ThomyKay.Confluence.RemoteBlogEntry -Property @{
-			Title = $Title;
-			Content = $Content;
-			Space = $Space.key;
-		}
-		
-		$session.Proxy.storeBlogEntry($session.Token, $blogEntry)
+		if ($psCmdlet.ShouldProcess($Title))
+			{
+				$blogEntry = New-Object ThomyKay.Confluence.RemoteBlogEntry -Property @{
+					Title = $Title;
+					Content = $Content;
+					Space = $Space.key;
+				}
+			
+				$session.Proxy.storeBlogEntry($session.Token, $blogEntry)
+			}
 	}
 }

@@ -1,0 +1,4 @@
+
+*.suo
+Confluence/bin/Debug/*
+Confluence/obj/*

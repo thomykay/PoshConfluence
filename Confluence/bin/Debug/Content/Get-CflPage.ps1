@@ -5,16 +5,18 @@ function Get-CflPage
 {
 	[CmdletBinding()]
 	param (
-		[Parameter(Mandatory = $false, Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true)]
+		[Parameter(Mandatory = $false, Position = 0, ValueFromPipelineByPropertyName = $true)]
 		[string]$Title = "*",
 			
-		[Parameter(Mandatory = $true, Position = 1, ValueFromPipelineByPropertyName = $true)]
+		[Parameter(Mandatory = $true, Position = 1, ValueFromPipeline = $true)]
 		[ThomyKay.Confluence.RemoteSpaceSummary]$Space,
 
 		[Parameter(Mandatory = $false)]
 		[ValidateNotNull()]
 		[ThomyKay.Confluence.CflSession]$Session = (Get-CflSession -Current)
 	)
-	
-	$session.Proxy.getPages($session.Token, $Space.key) | Where-Object {$_.title -like $Title}
+process
+	{
+		$session.Proxy.getPages($session.Token, $Space.key) | Where-Object {$_.title -like $Title}
+	}
 }

@@ -3,7 +3,7 @@
 #Script: New-CflPage
 function New-CflPage
 {
-	[CmdletBinding()]
+	[CmdletBinding(SupportsShouldProcess = $true, ConfirmImpact = "Low")]
 	param (
 		[Parameter(Mandatory = $true, Position = 0, ValueFromPipelineByPropertyName = $true)]
 		[string]$Title,
@@ -11,7 +11,7 @@ function New-CflPage
 		[Parameter(Mandatory = $true, Position = 1, ValueFromPipelineByPropertyName = $true)]
 		[string]$Content,
 
-		[Parameter(Mandatory = $true, Position = 2, ValueFromPipelineByPropertyName = $true)]
+		[Parameter(Mandatory = $true, Position = 2, ValueFromPipeline = $true)]
 		[ThomyKay.Confluence.RemoteSpaceSummary]$Space,
 		
 		[Parameter(Mandatory = $false)]
@@ -19,11 +19,17 @@ function New-CflPage
 		[ThomyKay.Confluence.CflSession]$Session = (Get-CflSession -Current)
 	)
 	
-	$page = new-object ThomyKay.Confluence.RemotePage -Property @{
-		Title = $Title;
-		Content = $Content;
-		Space = $space.key
+process
+	{
+		if ($psCmdlet.ShouldProcess($Title))
+			{
+				$page = new-object ThomyKay.Confluence.RemotePage -Property @{
+					Title = $Title;
+					Content = $Content;
+					Space = $space.key
+				}
+				
+				$Session.Proxy.storePage($Session.Token, $page)
+			}
 	}
-	
-	$Session.Proxy.storePage($Session.Token, $page)
 }

@@ -35,3 +35,4 @@ C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluenc
 C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Content\Remove-CflPage.ps1
 C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\PoshConfluence.Format.ps1xml
 C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\PoshConfluence.Types.ps1xml
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Invoke-CflItem.ps1
