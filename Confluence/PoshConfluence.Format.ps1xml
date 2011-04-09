@@ -6,6 +6,7 @@
       <Name>PageTableView</Name>
       <ViewSelectedBy>
         <TypeName>ThomyKay.Confluence.RemotePageSummary</TypeName>
+        <TypeName>ThomyKay.Confluence.RemoteBlogEntrySummary</TypeName>
       </ViewSelectedBy>
       <TableControl>
         <TableHeaders>
