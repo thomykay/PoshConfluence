@@ -17,6 +17,8 @@ function Get-CflComment
 		[ValidateNotNull()]
 		[ThomyKay.Confluence.CflSession]$Session = (Get-CflSession -Current)
 	)
-	
-	$Session.Proxy.getComments($Session.Token, $Item.Id) | Where-Object {$_.Content -like $Content}
+process
+	{
+		$Session.Proxy.getComments($Session.Token, $Item.Id) | Where-Object {$_.Content -like $Content}
+	}
 }

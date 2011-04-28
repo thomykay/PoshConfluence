@@ -9,7 +9,7 @@ function Get-CflPage
 		[string]$Title = "*",
 			
 		[Parameter(Mandatory = $false, Position = 1, ValueFromPipeline = $true)]
-		[ThomyKay.Confluence.RemoteSpaceSummary]$Space = (Get-CflSpace),
+		[ThomyKay.Confluence.RemoteSpaceSummary[]] $Space = (Get-CflSpace),
 
 		[Parameter(Mandatory = $false)]
 		[ValidateNotNull()]

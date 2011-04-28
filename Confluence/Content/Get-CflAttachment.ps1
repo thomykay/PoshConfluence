@@ -19,6 +19,9 @@ function Get-CflAttachment
 		[ValidateNotNull()]
 		[ThomyKay.Confluence.CflSession]$Session = (Get-CflSession -Current)
 	)
-	
-	$Session.Proxy.getAttachments($Session.Token, $Item.Id) | Where-Object {$_.FileName -like $FileName -and $_.Comment -like $Comment}
+
+process
+	{
+		$Session.Proxy.getAttachments($Session.Token, $Item.Id) | Where-Object {$_.FileName -like $FileName -and $_.Comment -like $Comment}
+	}
 }
