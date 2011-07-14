@@ -1,16 +1,27 @@
 ﻿#Author: thkrause
-#Date: 4/9/2011 6:04:20 PM
-#Script: Get-CflLabel
+#Date: 4/28/2011 9:25:40 PM
+#Script: Script1
 function Get-CflLabel
 {
 	[CmdletBinding(DefaultParameterSetName = "Popular")]
 	param (
-		[Parameter(Mandatory = $false, Position = 0, ValueFromPipeline = $true, ParameterSetName = "Popular")]
-		[int]$Popular=20,
 		
-		[Parameter(Mandatory = $false, Position = 1, ValueFromPipeline = $true, ParameterSetName = "Popular")]
-		[ThomyKay.Confluence.RemoteSpaceSummary]$Space,
+		[Parameter(Mandatory = $false, Position = 0)]
+		[string]$Name = "*",
 
+		[Parameter(Mandatory = $false, ParameterSetName = "Popular")]
+		[switch]$Popular,
+		
+		[Parameter(Mandatory = $false)]
+		[ThomyKay.Confluence.RemoteSpaceSummary[]] $Space = (Get-CflSpace),
+
+		
+		[Parameter(Mandatory = $true, ParameterSetName = "Recent")]
+		[switch]$Recent,
+		
+		[Parameter(Mandatory = $true, Position = 1, ParameterSetName = "Item")]
+		$Item,
+		
 		[Parameter(Mandatory = $false)]
 		[ValidateNotNull()]
 		[ThomyKay.Confluence.CflSession]$Session = (Get-CflSession -Current)
@@ -18,16 +29,28 @@ function Get-CflLabel
 	
 	switch ($psCmdlet.ParameterSetName)
 	{
-		"Popular"
-		{
-			if ($Space)
-			{
-				$Session.Proxy.getMostPopularLabelsInSpace($session.Token, $space.key, $Popular)
-			}
-			else
-			{
-				$session.Proxy.getMostPopularLabels($session.Token, $Popular)
-			}
-		}
+		"Popular"	{
+						if (!$PSBoundParameters.ContainsKey("Space"))
+						{
+							$Session.Proxy.getMostPopularLabels($session.Token, 100) | Where-Object {$_.name -like $Name}
+						}
+						else
+						{
+							$Space | %{$session.Proxy.getMostPopularLabelsInSpace($session.Token, $_.key, 100)} | Where-Object {$_.name -like $Name}
+						}
+					}
+		"Recent" 	{
+						if (!$PSBoundParameters.ContainsKey("Space"))
+						{
+							$session.Proxy.getRecentlyUsedLabels($session.Token, 100) | Where-Object {$_.name -like $Name}
+						}
+						else
+						{
+							$Space | %{$session.Proxy.getRecentlyUsedLabelsInSpace($session.Token, $_.key, 100)} | Where-Object {$_.name -like $Name}
+						}
+					}
+		"Item"		{
+						#$session.P
+					}
 	}
 }

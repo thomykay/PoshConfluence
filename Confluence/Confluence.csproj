@@ -202,6 +202,7 @@
     </Content>
     <Content Include="PoshConfluence.Types.ps1xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Invoke-CflItem.ps1">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -230,8 +231,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\Script1.ps1" />
+    <None Include="Formatting\ConvertTo-CflChart.ps1" />
+    <None Include="Formatting\ConvertTo-CflTable.ps1" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
