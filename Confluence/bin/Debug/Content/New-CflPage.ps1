@@ -9,7 +9,7 @@ function New-CflPage
 		[string]$Title,
 		
 		[Parameter(Mandatory = $true, Position = 1, ValueFromPipelineByPropertyName = $true)]
-		[string]$Content,
+		[string[]]$Content,
 
 		[Parameter(Mandatory = $true, Position = 2, ValueFromPipeline = $true)]
 		[ThomyKay.Confluence.RemoteSpaceSummary]$Space,
@@ -25,7 +25,7 @@ process
 			{
 				$page = new-object ThomyKay.Confluence.RemotePage -Property @{
 					Title = $Title;
-					Content = $Content;
+					Content = $Content | Out-String;
 					Space = $space.key
 				}
 				

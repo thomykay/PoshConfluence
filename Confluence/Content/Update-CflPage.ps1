@@ -12,7 +12,7 @@ function Update-CflPage
 		[string]$Title,
 		
 		[Parameter(Mandatory = $false, Position = 2, ValueFromPipelineByPropertyName = $true)]
-		[string]$Content,
+		[string[]]$Content,
 		
 		[Parameter(Mandatory = $false)]
 		[switch]$MinorEdit,
@@ -29,7 +29,7 @@ function Update-CflPage
 	$realPage = $Session.Proxy.getPage($Session.Token, $Page.space, $page.title)
 	
 	if ($psBoundParameters.ContainsKey("Title")) {$realPage.Title = $Title}
-	if ($psBoundParameters.ContainsKey("Content")) {$realPage.Content = $Content}
+	if ($psBoundParameters.ContainsKey("Content")) {$realPage.Content = $Content | Out-String}
 	
 	$changes = New-Object ThomyKay.Confluence.RemotePageUpdateOptions -Property @{
 		MinorEdit = $MinorEdit.IsPresent;

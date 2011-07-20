@@ -5,12 +5,12 @@
 	[Parameter(Mandatory=$true, Position = 0)]
 	[Uri]$ConnectionUri,
 	
-	[Parameter(Mandatory=$true)]
-	[System.Management.Automation.Credential()]
-	$Credential
+	[Parameter(Mandatory=$true, Position = 1)]
+	[Management.Automation.Credential()]
+	[Management.Automation.PSCredential]$Credential
 	)
 	
-	[Uri]$soapUri = $ConnectionUri.ToString() + "rpc/soap-axis/confluenceservice-v1?wsdl"
+	[Uri]$soapUri = $ConnectionUri.AbsoluteUri.TrimEnd('/') + "/rpc/soap-axis/confluenceservice-v1?wsdl"
 	$proxy = New-WebServiceProxy -Uri $soapUri -Credential $Credential -Namespace ThomyKay.Confluence -Class ConfluenceProxy
 
 	#TODO: Care about domain part?

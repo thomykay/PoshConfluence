@@ -9,7 +9,7 @@ function New-CflBlogEntry
 		[string]$Title,
 		
 		[Parameter(Mandatory = $true, Position = 1, ValueFromPipelineByPropertyName = $true)]
-		[string]$Content,
+		[string[]]$Content,
 
 		[Parameter(Mandatory = $true, Position = 2, ValueFromPipeline = $true)]
 		[ThomyKay.Confluence.RemoteSpaceSummary]$Space,
@@ -24,7 +24,7 @@ process
 			{
 				$blogEntry = New-Object ThomyKay.Confluence.RemoteBlogEntry -Property @{
 					Title = $Title;
-					Content = $Content;
+					Content = $Content | Out-String;
 					Space = $Space.key;
 				}
 			

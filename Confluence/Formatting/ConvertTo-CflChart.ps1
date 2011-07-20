@@ -70,7 +70,7 @@ function ConvertTo-CflChart
 		[int]$Height,
 		
 		[Parameter()]
-		[ValidateSet("true", "after", "befor"]
+		[ValidateSet("true", "after", "before")]
 		$DataDisplay,
 		
 		#Title and Label Customisation Parameters
