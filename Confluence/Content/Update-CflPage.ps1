@@ -11,7 +11,7 @@ function Update-CflPage
 		[Parameter(Mandatory = $false, Position = 1, ValueFromPipelineByPropertyName = $true)]
 		[string]$Title,
 		
-		[Parameter(Mandatory = $false, Position = 2, ValueFromPipelineByPropertyName = $true)]
+		[Parameter(Mandatory = $false, Position = 2, ValueFromPipelineByPropertyName = $true, ValueFromPipeline = $true)]
 		[string[]]$Content,
 		
 		[Parameter(Mandatory = $false)]

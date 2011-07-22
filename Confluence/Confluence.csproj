@@ -239,8 +239,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Formatting\ConvertTo-CflTablePlus.ps1" />
-    <None Include="Formatting\Merge-CflTable.ps1" />
+    <Content Include="Formatting\ConvertTo-CflTablePlus.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Formatting\Merge-CflTable.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

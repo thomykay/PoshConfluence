@@ -47,7 +47,7 @@ function ConvertTo-CflChart
 		
 		[Parameter()]
 		[ValidateSet("vertical", "horizontal")]
-		$Orientation = "vertical",
+		$DataOrientation = "vertical",
 		
 		[Parameter()]
 		[switch]$3d,
@@ -64,10 +64,10 @@ function ConvertTo-CflChart
 		
 		#display control parameters
 		[Parameter(Mandatory = $false)]
-		[int]$Width,
+		[int]$Width = 300,
 		
 		[Parameter(Mandatory = $false)]
-		[int]$Height,
+		[int]$Height = 300,
 		
 		[Parameter()]
 		[ValidateSet("true", "after", "before")]
@@ -89,5 +89,23 @@ function ConvertTo-CflChart
 		[Parameter()]
 		[switch]$Legend
 	)
+begin {
+	"{chart:type=$ChartType|title=$Title|3d=$3d|DataOrientation=$DataOrientation|Width=$Width|Height=$Height|$DataDisplay=$DataDisplay|$SubTitle=$SubTitle|xLabel=$xLabel|yLabel=$yLabel}"
+	$headerGenerated = $false
+}
+process {
+		if (!$headerGenerated)
+		{
+			$headerGenerated = $true
+			$InputObject.PSObject.Properties | % -Begin {$header = ""} -Process {$header += "||$($_.Name)"} -End {$header += "||"}
+			$header
+		}
+		
+		$InputObject.PSObject.Properties | % -Begin {$row = ""} -Process {$row += "|$($_.Value)"} -End {$row += "|"}
+		$row
+}
+end {	
+	"{chart}"
+}	
 }
 

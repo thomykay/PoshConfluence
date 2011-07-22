@@ -8,7 +8,7 @@ function New-CflBlogEntry
 		[Parameter(Mandatory = $true, Position = 0, ValueFromPipelineByPropertyName = $true)]
 		[string]$Title,
 		
-		[Parameter(Mandatory = $true, Position = 1, ValueFromPipelineByPropertyName = $true)]
+		[Parameter(Mandatory = $true, Position = 1, ValueFromPipelineByPropertyName = $true, ValueFromPipeline = $true)]
 		[string[]]$Content,
 
 		[Parameter(Mandatory = $true, Position = 2, ValueFromPipeline = $true)]

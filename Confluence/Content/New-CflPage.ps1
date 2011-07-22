@@ -8,11 +8,12 @@ function New-CflPage
 		[Parameter(Mandatory = $true, Position = 0, ValueFromPipelineByPropertyName = $true)]
 		[string]$Title,
 		
-		[Parameter(Mandatory = $true, Position = 1, ValueFromPipelineByPropertyName = $true)]
+		[Parameter(Mandatory = $true, Position = 1, ValueFromPipelineByPropertyName = $true, ValueFromPipeline = $true)]
 		[string[]]$Content,
 
-		[Parameter(Mandatory = $true, Position = 2, ValueFromPipeline = $true)]
-		[ThomyKay.Confluence.RemoteSpaceSummary]$Space,
+		[Parameter(Mandatory = $true, Position = 2)]
+		#[ValidateScript({$space -is [ThomyKay.Confluence.RemoteSpaceSummary] -or $space -is [string]})]
+		$Space,
 		
 		[Parameter(Mandatory = $false)]
 		[ValidateNotNull()]
@@ -23,10 +24,15 @@ process
 	{
 		if ($psCmdlet.ShouldProcess($Title))
 			{
+				if ($Space -is [ThomyKay.Confluence.RemoteSpaceSummary])
+					{
+						$space = $space.Key
+					}
+					
 				$page = new-object ThomyKay.Confluence.RemotePage -Property @{
 					Title = $Title;
 					Content = $Content | Out-String;
-					Space = $space.key
+					Space = $Space
 				}
 				
 				$Session.Proxy.storePage($Session.Token, $page)

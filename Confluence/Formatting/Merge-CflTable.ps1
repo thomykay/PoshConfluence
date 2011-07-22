@@ -8,5 +8,4 @@
 	
 	#TODO: check both table headers
 	#remove the table header of the second table
-	$NewTable.
 }
