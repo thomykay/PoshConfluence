@@ -51,3 +51,11 @@ C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluenc
 C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Content\Remove-CflComment.ps1
 C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Formatting\ConvertTo-CflChart.ps1
 C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Formatting\ConvertTo-CflTable.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Formatting\ConvertTo-CflTablePlus.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Formatting\Merge-CflTable.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Content\Set-CflPage.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Administration\Clear-CflTrash.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Administration\Get-CflTrashItem.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Administration\Restore-CflTrashItem.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Content\Move-CflPage.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\UserManagement\Watch-CflPage.ps1

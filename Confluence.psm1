@@ -7,5 +7,5 @@ function Install-Confluence
 
 function Uninstall-Confluence
 {
-	rmdir ~\Documents\WindowsPowerShell\Modules\PoshConfluence -ErrorAction Continue
+	rmdir ~\Documents\WindowsPowerShell\Modules\PoshConfluence -ErrorAction Continue -Recurse
 }

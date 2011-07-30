@@ -11,8 +11,8 @@ function New-CflPage
 		[Parameter(Mandatory = $true, Position = 1, ValueFromPipelineByPropertyName = $true, ValueFromPipeline = $true)]
 		[string[]]$Content,
 
-		[Parameter(Mandatory = $true, Position = 2, ValueFromPipeline = $true)]
-		[ValidateScript({$space -is [ThomyKay.Confluence.RemoteSpaceSummary] -or $space -is [string]})]
+		[Parameter(Mandatory = $true, Position = 2)]
+		#[ValidateScript({$space -is [ThomyKay.Confluence.RemoteSpaceSummary] -or $space -is [string]})]
 		$Space,
 		
 		[Parameter(Mandatory = $false)]

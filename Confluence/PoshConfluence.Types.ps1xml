@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<!--<Types xmlns="http://schemas.microsoft.com/PowerShell/TypeData/2007/04">-->
-  <Types>
+<!-- <Types xmlns="http://schemas.microsoft.com/PowerShell/TypeData/2007/04"> -->
+<Types>
   <Type>
     <Name>ThomyKay.Confluence.RemotePageSummary</Name>
     <Members>

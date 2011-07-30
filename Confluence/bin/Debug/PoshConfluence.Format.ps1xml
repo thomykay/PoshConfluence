@@ -37,5 +37,63 @@
         </TableRowEntries>
       </TableControl>
     </View>
+    <View>
+      <Name>RemoteContentSummaryTable</Name>
+      <ViewSelectedBy>
+        <TypeName>ThomyKay.Confluence.RemoteContentSummary</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader>
+            <Label>Type</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Space</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Title</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Creator</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Created</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Modifier</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Modified</Label>
+          </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem>
+                <PropertyName>type</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>space</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>title</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>creator</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>created</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>modifier</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>modified</PropertyName>
+              </TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
   </ViewDefinitions>
 </Configuration>

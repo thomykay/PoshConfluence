@@ -53,6 +53,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="Content\Set-CflPage.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Enter-CflSession.ps1">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -199,6 +202,7 @@
     </Content>
     <Content Include="PoshConfluence.Format.ps1xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="PoshConfluence.Types.ps1xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -243,6 +247,24 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Formatting\Merge-CflTable.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Administration\Clear-CflTrash.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Administration\Get-CflTrashItem.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Administration\Restore-CflTrashItem.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Move-CflPage.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Formatting\Merge-CflChart.ps1" />
+    <Content Include="UserManagement\Watch-CflPage.ps1">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

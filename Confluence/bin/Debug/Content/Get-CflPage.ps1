@@ -3,13 +3,16 @@
 #Script: Get-CflPage
 function Get-CflPage
 {
-	[CmdletBinding()]
+	[CmdletBinding(DefaultParameterSetName = "BySpaceKey")]
 	param (
 		[Parameter(Mandatory = $false, Position = 0, ValueFromPipelineByPropertyName = $true)]
 		[string]$Title = "*",
 			
-		[Parameter(Mandatory = $false, Position = 1, ValueFromPipeline = $true)]
+		[Parameter(Mandatory = $false, Position = 1, ValueFromPipeline = $true, ParameterSetName = "BySpace")]
 		[ThomyKay.Confluence.RemoteSpaceSummary[]] $Space = (Get-CflSpace),
+		
+		[Parameter(Mandatory = $false, Position = 1, ValueFromPipeline = $true, ParameterSetName = "BySpaceKey")]
+		[string[]] $SpaceKey = (Get-CflSpace | %{$_.Key}),
 
 		[Parameter(Mandatory = $false)]
 		[ValidateNotNull()]
@@ -17,6 +20,11 @@ function Get-CflPage
 	)
 process
 	{
-		($Space | %{$session.Proxy.getPages($session.Token, $_.key)}) | Where-Object {$_.title -like $Title}
+		switch ($psCmdlet.ParameterSetName)
+		{
+			"BySpace" { $Space | %{[array]$SpaceKey += $_.Key}}
+		}
+		
+		($SpaceKey | %{$session.Proxy.getPages($session.Token, $_)}) | Where-Object {$_.title -like $Title}
 	}
 }
