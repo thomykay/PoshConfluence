@@ -10,10 +10,11 @@
 	[Management.Automation.PSCredential]$Credential
 	)
 	
-	[Uri]$soapUri = $ConnectionUri.AbsoluteUri.TrimEnd('/') + "/rpc/soap-axis/confluenceservice-v1?wsdl"
-	$proxy = New-WebServiceProxy -Uri $soapUri -Credential $Credential -Namespace ThomyKay.Confluence -Class ConfluenceProxy
+	[Uri]$soapUri = $ConnectionUri.AbsoluteUri.TrimEnd('/') + "/rpc/soap-axis/confluenceservice-v2?wsdl"
+	#$proxy = New-WebServiceProxy -Uri $soapUri -Credential $Credential -Namespace Throw.ThomyKay.Confluence -Class ConfluenceProxy
 
 	#TODO: Care about domain part?
+	$proxy.Url = $soapUri
 	$token = $proxy.login($Credential.GetNetworkCredential().UserName, $Credential.GetNetworkCredential().Password)
 	
 	$session = New-Object ThomyKay.Confluence.CflSession -property @{
@@ -21,13 +22,5 @@
 		Proxy = $proxy
 	}
 	
-	# the condition is temp for PowerWF.
-	if ($CflSessionManager)
-	{
-		$CflSessionManager.Enter($session)
-	}
-	else
-	{
-		$session
-	}
+	$CflSessionManager.Enter($session)
 }

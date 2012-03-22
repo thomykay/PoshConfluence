@@ -24,7 +24,7 @@ process
 			{
 				$blogEntry = New-Object ThomyKay.Confluence.RemoteBlogEntry -Property @{
 					Title = $Title;
-					Content = $Content | Out-String;
+					Content = $Content | Out-String | ConvertTo-CflStorageFormat -Session $Session;
 					Space = $Space.key;
 				}
 			

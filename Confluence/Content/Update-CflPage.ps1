@@ -29,7 +29,10 @@ function Update-CflPage
 	$realPage = $Session.Proxy.getPage($Session.Token, $Page.space, $page.title)
 	
 	if ($psBoundParameters.ContainsKey("Title")) {$realPage.Title = $Title}
-	if ($psBoundParameters.ContainsKey("Content")) {$realPage.Content = $Content | Out-String}
+	if ($psBoundParameters.ContainsKey("Content")) 
+		{
+			$realPage.Content = $Content | Out-String | ConvertTo-CflStorageFormat -Session $Session
+		}
 	
 	$changes = New-Object ThomyKay.Confluence.RemotePageUpdateOptions -Property @{
 		MinorEdit = $MinorEdit.IsPresent;

@@ -10,6 +10,9 @@ function New-CflPage
 		
 		[Parameter(Mandatory = $true, Position = 1, ValueFromPipelineByPropertyName = $true, ValueFromPipeline = $true)]
 		[string[]]$Content,
+		
+		[Parameter(Mandatory = $false, ValueFromPipeline = $true)]
+		$ParentPage,
 
 		[Parameter(Mandatory = $true, Position = 2)]
 		#[ValidateScript({$space -is [ThomyKay.Confluence.RemoteSpaceSummary] -or $space -is [string]})]
@@ -28,11 +31,17 @@ process
 					{
 						$space = $space.Key
 					}
+				
+				if ($ParentPage)
+				{
+					$parentId = $ParentPage.Id
+				}
 					
 				$page = new-object ThomyKay.Confluence.RemotePage -Property @{
 					Title = $Title;
-					Content = $Content | Out-String;
-					Space = $Space
+					Content = $Content | Out-String | ConvertTo-CflStorageFormat -Session $Session;
+					Space = $Space;
+					ParentId = $parentId
 				}
 				
 				$Session.Proxy.storePage($Session.Token, $page)

@@ -59,3 +59,11 @@ C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluenc
 C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Administration\Restore-CflTrashItem.ps1
 C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Content\Move-CflPage.ps1
 C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\UserManagement\Watch-CflPage.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Formatting\ConvertTo-CflList.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\PageSet.cs
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\confluenceservice-v1.xml
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Content\Get-CflBookmark.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Content\New-CflBookmark.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\AddTypes.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\confluence-v2.wsdl
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Formatting\ConvertTo-CflStorageFormat.ps1
