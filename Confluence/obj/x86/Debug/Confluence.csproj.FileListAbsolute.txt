@@ -67,3 +67,7 @@ C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluenc
 C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\AddTypes.ps1
 C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\confluence-v2.wsdl
 C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\Formatting\ConvertTo-CflStorageFormat.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\ImportExport\Convert-CflArchiveUser.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\ImportExport\Get-CflArchive.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\ImportExport\Test-CflArchive.ps1
+C:\Users\thkrause\Documents\Visual Studio 2010\Projects\PoshConfluence\Confluence\bin\Debug\ImportExport\Get-CflArchiveUser.ps1
