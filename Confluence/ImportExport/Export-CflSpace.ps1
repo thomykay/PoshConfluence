@@ -3,6 +3,19 @@
 #Script: Export-CflSpace
 function Export-CflSpace
 {
+	[CmdletBinding()]
 	param (
+		[Parameter(Mandatory= $true, Position = 0, ValueFromPipeline = $true)]
+		[ThomyKay.Confluence.RemoteSpaceSummary]$Space,
+		
+		[Parameter(Mandatory= $false, Position = 1, ValueFromPipeline = $false)]
+		[ValidateSet("PDF", "HTML", "xml")]
+		[string]$ExportType = "xml",
+
+		[Parameter(Mandatory = $false)]
+		[ValidateNotNull()]
+		[ThomyKay.Confluence.CflSession]$Session = (Get-CflSession -Current)
 	)
+	
+	$Session.Proxy.exportSpace($Session.Token, $Space.key,$ExportType)
 }
