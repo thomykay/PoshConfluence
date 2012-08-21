@@ -9,13 +9,18 @@ function Export-CflSpace
 		[ThomyKay.Confluence.RemoteSpaceSummary]$Space,
 		
 		[Parameter(Mandatory= $false, Position = 1, ValueFromPipeline = $false)]
-		[ValidateSet("PDF", "HTML", "xml")]
-		[string]$ExportType = "xml",
+		[ValidateSet("TYPE_HTML", "TYPE_XML")]
+		[string]$ExportType = "TYPE_XML",
 
 		[Parameter(Mandatory = $false)]
 		[ValidateNotNull()]
 		[ThomyKay.Confluence.CflSession]$Session = (Get-CflSession -Current)
 	)
-	
+begin {
+}
+process {
 	$Session.Proxy.exportSpace($Session.Token, $Space.key,$ExportType)
+}
+end {
+}
 }

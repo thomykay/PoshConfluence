@@ -4,5 +4,18 @@
 function Export-CflSite
 {
 	param (
+		[Parameter(Mandatory=$false)]
+		[switch]$IncludeAttachments = $true,
+		
+		[Parameter(Mandatory = $false)]
+		[ValidateNotNull()]
+		[ThomyKay.Confluence.CflSession]$Session = (Get-CflSession -Current)
 	)
+begin {
+}
+process {
+	$Session.Proxy.exportSite($Session.Token, $IncludeAttachments.IsPresent)
+}
+end {
+}
 }

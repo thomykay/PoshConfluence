@@ -55,6 +55,7 @@
   <ItemGroup>
     <Content Include="confluenceservice-v1.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Content\Set-CflPage.ps1">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -301,7 +302,22 @@
     <Content Include="ImportExport\Get-CflArchiveUser.ps1">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="UserManagement\Unregister-CflPageWatch.ps1" />
+    <Content Include="UserManagement\Add-CflGroupMember.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UserManagement\Get-CflGroupMember.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UserManagement\Get-CflUserGroup.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UserManagement\Remove-CflGroupMember.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="UserManagement\Get-CflPageWatch.ps1" />
+    <Content Include="UserManagement\Unregister-CflPageWatch.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="PageSet.cs">

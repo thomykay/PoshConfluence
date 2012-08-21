@@ -14,6 +14,9 @@ function New-CflBlogEntry
 		[Parameter(Mandatory = $true, Position = 2, ValueFromPipeline = $true)]
 		[ThomyKay.Confluence.RemoteSpaceSummary]$Space,
 		
+		[Parameter(Mandatory = $false, ValueFromPipeline = $true)]
+		[datetime]$PublishDate,
+
 		[Parameter(Mandatory = $false)]
 		[ValidateNotNull()]
 		[ThomyKay.Confluence.CflSession]$Session = (Get-CflSession -Current)
@@ -26,6 +29,7 @@ process
 					Title = $Title;
 					Content = $Content | Out-String | ConvertTo-CflStorageFormat -Session $Session;
 					Space = $Space.key;
+					PublishDate = $PublishDate
 				}
 			
 				$session.Proxy.storeBlogEntry($session.Token, $blogEntry)

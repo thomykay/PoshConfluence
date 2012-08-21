@@ -4,5 +4,14 @@
 function Import-CflSite
 {
 	param (
+		[Parameter(Mandatory = $false)]
+		[ValidateNotNull()]
+		[ThomyKay.Confluence.CflSession]$Session = (Get-CflSession -Current)
 	)
+begin {
+}
+process {
+}
+end {
+}
 }

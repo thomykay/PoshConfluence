@@ -4,5 +4,13 @@
 function Import-CflSpace
 {
 	param (
+		[Parameter(Mandatory = $true, Position = 0)]
+		[string]$Path,
+		
+		[Parameter(Mandatory = $false)]
+		[ValidateNotNull()]
+		[ThomyKay.Confluence.CflSession]$Session = (Get-CflSession -Current)
 	)
+	$content = [System.IO.File]::ReadAllBytes($Path)
+	[Void]$Session.Proxy.importSpace($Session.Token, $content)
 }

@@ -16,10 +16,12 @@ function New-CflSpace
 		[ThomyKay.Confluence.CflSession]$Session = (Get-CflSession -Current)
 	)
 	
+process {
 	$space = New-Object ThomyKay.Confluence.RemoteSpace -Property @{
 		key = $Key;
 		name = $Name;
 		description = $Description
 	}
 	$Session.Proxy.addSpace($Session.Token, $space)
+}	
 }

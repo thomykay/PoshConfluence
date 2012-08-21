@@ -1,17 +1,15 @@
 ﻿#Author: thkrause
-#Date: 3/24/2011 9:06:51 PM
-#Script: Import-CflSite
-function Import-CflSite
-{
+#Date: 8/6/2012 2:36:00 PM
+#Script: Get-CflPageWatch
+function Get-CflPageWatch {
+	[CmdletBinding()]
 	param (
+		[ThomyKay.Confluence.Rem
 		[Parameter(Mandatory = $false)]
 		[ValidateNotNull()]
 		[ThomyKay.Confluence.CflSession]$Session = (Get-CflSession -Current)
 	)
-begin {
-}
 process {
-}
-end {
+	$Session.Proxy.getWatchersForPage
 }
 }
