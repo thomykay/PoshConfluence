@@ -5,7 +5,7 @@ function Get-CflArchive
 {
 	[CmdletBinding()]
 	param (
-		[Parameter(Mandatory = $true, Position = 0, ValueFromPipelineByPropertyName = $true)]
+		[Parameter(Mandatory = $true, Position = 0, ValueFromPipelineByPropertyName = $true, ValueFromPipeline = $true)]
 		[ValidateNotNull()]
 		[string]$Path
 	)

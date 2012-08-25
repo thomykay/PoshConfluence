@@ -6,14 +6,17 @@ function New-CflUser
 	[CmdletBinding()]
 	param (
 		[Parameter(Mandatory=$true, Position = 0, ValueFromPipelineByPropertyName = $true)]
+		[Alias("SamAccountName")]
 		[ValidateNotNull()]
 		[string]$Name,
 		
 		[Parameter(Mandatory=$true, Position = 1, ValueFromPipelineByPropertyName = $true)]
+		[Alias("SamAccountName")]
 		[ValidateNotNull()]
 		[string]$Password,
 		
 		[Parameter(Mandatory=$true, Position = 2, ValueFromPipelineByPropertyName = $true)]
+		[Alias("DisplayName")]
 		[ValidateNotNull()]
 		[string]$FullName,
 		

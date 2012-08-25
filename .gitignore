@@ -16,3 +16,5 @@ Confluence/bin/Debug/Confluence.dll
 Confluence/obj/
 Confluence.6.0.ReSharper.user
 *.user
+/_ReSharper.Confluence
+*.suo

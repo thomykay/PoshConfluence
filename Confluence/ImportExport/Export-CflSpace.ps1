@@ -17,10 +17,13 @@ function Export-CflSpace
 		[ThomyKay.Confluence.CflSession]$Session = (Get-CflSession -Current)
 	)
 begin {
+	write-progress -id 1 -activity "Space Export" -Status "Initialize"
 }
 process {
+	write-progress -id 1 -activity "Space Export" -Status "Execute" -CurrentOperation "Exporting ${Space.Key}"
 	$Session.Proxy.exportSpace($Session.Token, $Space.key,$ExportType)
 }
 end {
+	write-progress -id 1 -Completed
 }
 }
