@@ -1,5 +1,4 @@
 
-Confluence/bin/Debug/*
 _ReSharper.Confluence/*
 Confluence/obj/*
 Confluence.suo
@@ -8,3 +7,6 @@ Confluence.suo
 /_ReSharper.Confluence
 *.suo
 bin
+
+Confluence.ncrunchsolution
+Confluence\bin\Debug*/

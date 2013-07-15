@@ -34,6 +34,6 @@ process
 			Fullname = $FullName;
 			Email = $Email
 		}
-		$Session.Proxy.addUser($Session.Token, $user, $Password)
+		$Session.Proxy.addUser($Session.Token, $user, $Password, $false)
 	}
 }
