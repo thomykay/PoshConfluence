@@ -11,16 +11,20 @@ function Get-CflPage
 		[Parameter(Mandatory = $false, Position = 1, ValueFromPipeline = $true, ParameterSetName = "BySpace")]
 		[ThomyKay.Confluence.RemoteSpaceSummary[]]$Space = (Get-CflSpace),
 		
-		[Parameter(Mandatory = $true, Position = 1, ValueFromPipeline = $true, ParameterSetName = "ByParentPage")]
-		[ThomyKay.Confluence.RemotePageSummary]$ParentPage,
+		[Parameter(Mandatory = $true, Position = 1, ValueFromPipeline = $true, ParameterSetName = "ChildrenOf")]
+		[ThomyKay.Confluence.RemotePageSummary]$ChildrenOf,
 		
-		[Parameter(Mandatory = $false, ParameterSetName = "ByParentPage")]
-		[ThomyKay.Confluence.PageSet]$PageSet = "Children",
+		[Parameter(Mandatory = $true, Position = 1, ValueFromPipeline = $true, ParameterSetName = "AncestorsOf")]
+		[ThomyKay.Confluence.RemotePageSummary]$AncestorsOf,
+
+		[Parameter(Mandatory = $true, Position = 1, ValueFromPipeline = $true, ParameterSetName = "DescendentsOf")]
+		[ThomyKay.Confluence.RemotePageSummary]$DescendentsOf,
 
 		[Parameter(Mandatory = $false)]
 		[ValidateNotNull()]
 		[ThomyKay.Confluence.CflSession]$Session = (Get-CflSession -Current)
 	)
+begin{}
 process
 	{
 		switch ($psCmdlet.ParameterSetName)
@@ -28,10 +32,20 @@ process
 			"BySpace" 
 				{ 
 					$Space | %{[array]$SpaceKey += $_.Key}
-					($SpaceKey | %{$session.Proxy.getPages($session.Token, $_)}) | Where-Object {$_.title -like $Title
+					($SpaceKey | %{$session.Proxy.getPages($session.Token, $_)}) | Where-Object {$_.title -like $Title}
 				}
+            "ChildrenOf"
+                {
+                    $session.Proxy.getChildren($session.Token,$ChildrenOf.id) | Where-Object {$_.title -like $Title}
+                }
+            "AncestorsOf"
+                {
+                    $session.Proxy.getAncestors($session.Token,$AncestorsOf.id) | Where-Object {$_.title -like $Title}
+                }
+            "DescendentsOf"
+                {
+                    $session.Proxy.getDescendents($session.Token,$DescendentsOf.id) | Where-Object {$_.title -like $Title}
+                }
 		}
-		
-		}
-	}
+    }
 }

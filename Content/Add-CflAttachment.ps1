@@ -5,18 +5,39 @@ function Add-CflAttachment
 {
 	[CmdletBinding()]
 	param (
+		[Parameter(Mandatory = $true, ValueFromPipeline = $true)]
+		[ValidateScript({$_ -is [ThomyKay.Confluence.RemoteBlogEntrySummary] -or $_ -is [ThomyKay.Confluence.RemotePageSummary]})]
+		$Item,
+
+        [string]$Name,
+
+        [string]$Path,
+
+        [string]$ContentType,
+
 		[Parameter(Mandatory = $false)]
 		[ValidateNotNull()]
 		[ThomyKay.Confluence.CflSession]$Session = (Get-CflSession -Current)
 	)
-	
+begin {
+}
+process {
+    if (!$ContentType)
+    {
+        $ContentType = "application/pdf"
+    }
+
 	$attachment = New-Object ThomyKay.Confluence.RemoteAttachment -Property @{
 		PageId = $Item.Id;
-		Title = $Title;
+		Title = $Name;
 		Comment = $Comment;
-		FileName = $FileName;
+		FileName = $Name;
 		ContentType = $ContentType;
 	}
 	
-	$session.Proxy.addAttachment($session.Token, $attachment, $null)
+    $content = Get-Content $Path -Encoding Byte
+	$session.Proxy.addAttachment($session.Token, $Item.id, $attachment, $content)
+}
+end {
+}
 }

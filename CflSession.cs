@@ -13,6 +13,8 @@
 
         private object proxy;
 
+        private string connectionUri;
+
         /// <summary>
         /// Gets or sets the proxy.
         /// </summary>
@@ -38,6 +40,17 @@
             set
             {
                 token = value;
+            }
+        }
+        public string ConnectionUri
+        {
+            get
+            {
+                return connectionUri;
+            }
+            set
+            {
+                connectionUri = value;
             }
         }
     }

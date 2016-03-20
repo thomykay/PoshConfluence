@@ -12,9 +12,12 @@ function Remove-CflPage
 		[ValidateNotNull()]
 		[ThomyKay.Confluence.CflSession]$Session = (Get-CflSession -Current)
 	)
-	
+begin {}
+process {	
 	if ($psCmdlet.ShouldProcess($Page.Title))
 		{
 			[Void]$Session.Proxy.removePage($Session.Token, $Page.id)
 		}
+    }
+end {}
 }

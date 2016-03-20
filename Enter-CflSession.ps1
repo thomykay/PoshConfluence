@@ -20,7 +20,8 @@
 	
 	$session = New-Object ThomyKay.Confluence.CflSession -property @{
 		Token = $token;
-		Proxy = $proxy
+		Proxy = $proxy;
+        ConnectionUri = $ConnectionUri.AbsoluteUri.TrimEnd('/')
 	}
 	
 	$CflSessionManager.Enter($session)

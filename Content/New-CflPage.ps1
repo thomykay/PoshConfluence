@@ -8,7 +8,7 @@ function New-CflPage
 		[Parameter(Mandatory = $true, Position = 0, ValueFromPipelineByPropertyName = $true)]
 		[string]$Title,
 		
-		[Parameter(Mandatory = $true, Position = 1, ValueFromPipelineByPropertyName = $true, ValueFromPipeline = $true)]
+		[Parameter(Mandatory = $false, Position = 1, ValueFromPipelineByPropertyName = $true, ValueFromPipeline = $true)]
 		[string[]]$Content,
 		
 		[Parameter(Mandatory = $false, ValueFromPipeline = $true)]
@@ -39,7 +39,7 @@ process
 					
 				$page = new-object ThomyKay.Confluence.RemotePage -Property @{
 					Title = $Title;
-					Content = $Content | Out-String | ConvertTo-CflStorageFormat -Session $Session;
+					Content = $Content;
 					Space = $Space;
 					ParentId = $parentId
 				}

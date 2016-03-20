@@ -31,7 +31,7 @@ function Update-CflPage
 	if ($psBoundParameters.ContainsKey("Title")) {$realPage.Title = $Title}
 	if ($psBoundParameters.ContainsKey("Content")) 
 		{
-			$realPage.Content = $Content | Out-String | ConvertTo-CflStorageFormat -Session $Session
+			$realPage.Content = $Content
 		}
 	
 	$changes = New-Object ThomyKay.Confluence.RemotePageUpdateOptions -Property @{

@@ -12,18 +12,21 @@ function Export-CflSpace
 		[ValidateSet("TYPE_HTML", "TYPE_XML")]
 		[string]$ExportType = "TYPE_XML",
 
+        [Parameter(Mandatory=$false, ValueFromPipeline=$false)]
+        [switch]$ExportAll,
+
 		[Parameter(Mandatory = $false)]
 		[ValidateNotNull()]
 		[ThomyKay.Confluence.CflSession]$Session = (Get-CflSession -Current)
 	)
 begin {
-	write-progress -id 1 -activity "Space Export" -Status "Initialize"
+	Write-Progress -id 1 -Activity "Space Export" -Status "Initialize"
 }
 process {
-	write-progress -id 1 -activity "Space Export" -Status "Execute" -CurrentOperation "Exporting ${Space.Key}"
-	$Session.Proxy.exportSpace($Session.Token, $Space.key,$ExportType)
+	Write-Progress -id 1 -Activity "Space Export" -Status "Execute" -CurrentOperation "Exporting ""$($Space.name)"" ($($Space.key))"
+	$Session.Proxy.exportSpace($Session.Token, $Space.key,$ExportType, $ExportAll.IsPresent)
 }
 end {
-	write-progress -id 1 -Completed
+	Write-Progress -id 1 -Activity "Space Export" -Status "Finished" -Completed
 }
 }
