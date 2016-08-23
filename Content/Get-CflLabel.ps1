@@ -19,14 +19,16 @@ function Get-CflLabel
 		[Parameter(Mandatory = $true, ParameterSetName = "Recent")]
 		[switch]$Recent,
 		
-		[Parameter(Mandatory = $true, Position = 1, ParameterSetName = "Item")]
+		[Parameter(Mandatory = $true, Position = 1, ParameterSetName = "Item", ValueFromPipeline=$true)]
 		$Item,
 		
 		[Parameter(Mandatory = $false)]
 		[ValidateNotNull()]
 		[ThomyKay.Confluence.CflSession]$Session = (Get-CflSession -Current)
 	)
-	
+begin {
+}
+process {	
 	switch ($psCmdlet.ParameterSetName)
 	{
 		"Popular"	{
@@ -51,6 +53,10 @@ function Get-CflLabel
 					}
 		"Item"		{
 						#$session.P
+                        $session.Proxy.getLabelsById($session.Token, $Item.id) | Where-Object {$_.name -like $Name}
 					}
 	}
+}
+end {
+}
 }

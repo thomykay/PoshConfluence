@@ -14,4 +14,27 @@
       </ScriptProperty>
     </Members>
   </Type>
+  <Type>
+    <Name>ThomyKay.Confluence.RemoteSpaceSummary</Name>
+    <Members>
+        <MemberSet>
+            <Name>PSStandardMembers</Name>
+            <Members>
+                <PropertySet>
+                  <Name>DefaultDisplayPropertySet</Name>
+                  <ReferencedProperties>
+                    <Name>key</Name>
+                    <Name>name</Name>
+                  </ReferencedProperties>
+                </PropertySet>
+            </Members>
+        </MemberSet>
+        <ScriptMethod>
+            <Name>ToString</Name>
+            <Script>
+                $this.name
+            </Script>
+        </ScriptMethod>
+    </Members>
+  </Type>
 </Types>

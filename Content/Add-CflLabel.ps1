@@ -19,7 +19,17 @@ function Add-CflLabel
 begin {}
 process 
     {
-	    $Name | %{ $session.Proxy.addLabelByName($session.Token, $_, $Item.id) | Out-Null; }
+	    $Name | %{
+            $label = ($_.Trim()) -replace " & ","_" `
+            -replace "&","_" `
+            -replace " / ","_"`
+            -replace "/","_"`
+            -replace " \\ ", "_"`
+            -replace "\\","_"`
+            -replace " ","_"
+
+            [void]$session.Proxy.addLabelByName($session.Token, $label, $Item.id);
+        }
     }
 end {}
 }
