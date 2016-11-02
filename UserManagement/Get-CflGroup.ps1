@@ -15,14 +15,16 @@ function Get-CflGroup
 		[ValidateNotNull()]
 		[ThomyKay.Confluence.CflSession]$Session = (Get-CflSession -Current)
 	)
-	
-	switch ($psCmdlet.ParameterSetName)
-		{
-			"ByUser" {
-				$session.Proxy.getUserGroups($session.Token, $UserName) | Where-Object {$_ -like $Name}
-			}
-			default {
-				$session.Proxy.getGroups($session.Token) | Where-Object {$_ -like $Name}
-			}
-		}
+process 
+    {	
+	    switch ($psCmdlet.ParameterSetName)
+		    {
+			    "ByUser" {
+				    $session.Proxy.getUserGroups($session.Token, $UserName) | Where-Object {$_ -like $Name}
+			    }
+			    default {
+				    $session.Proxy.getGroups($session.Token) | Where-Object {$_ -like $Name}
+			    }
+            }
+    }
 }
